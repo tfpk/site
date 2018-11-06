@@ -1,0 +1,35 @@
+{
+    "bio": "Thomas Kunc is a software developer, based in Sydney. He currently studies Computer Science at UNSW; and is a Casual Academic at UNSW and Developer at Kinesis.",
+    "education": {
+        "SGS": {
+            "image": "images/SydneyGrammarSchool.jpg",
+            "time": "( 2012 - 2017 )",
+            "desc": "Studied for the Higher School Certificate (English Adv.; Math Ext. 2; Latin Ext.; Physics; Studies of Religion)"
+        }, 
+        "UNSW": {
+            "image": "images/UNSW.jpg",
+            "time": "( 2018 - )",
+            "desc": "Student for the Bachelor of Science (Computer Science)"
+        }
+    },
+    "experience": {
+        "Current Work": {
+            "UNSW: Casual Academic":{
+                "image": "images/UNSW2.jpg",
+                "time": " ( 2018 - ) ",
+                "desc": [
+                    "Assistant Tutor in COMP1511 (Fundamentals of Computer Science)",
+                    "Help Session Tutor: COMP1511",
+                    "Assisted in tutoring COMP1521 (Computer Systems Fundamentals) and COMP2521 (Data Structures and Algorithms)"
+                ]
+            },
+            "Kinesis: Developer":{
+                "image": "images/kinesis.jpg",
+                "time": " ( 2018 - ) ",
+                "desc": [
+                    "Developer working on internal and external facing progress."
+                ]
+            }
+        }
+    }
+}

@@ -5,3 +5,10 @@ body {
 .padded {
     padding-left: 10px;
 }
+
+.card-title {
+    margin: 1em;
+}
+.card-content {
+    margin: 2em;
+}
