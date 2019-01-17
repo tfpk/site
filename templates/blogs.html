@@ -15,7 +15,7 @@
     <body>
         <div class="navbar-fixed"/>
         <nav>
-            <div class="nav-wrapper light-green padded">
+            <div class="nav-wrapper blue-grey darken-3 padded">
                 <a href="#!" class="brand-logo">tfpk</a>
             </div>
         </nav>
@@ -58,16 +58,16 @@
                     {% for card_name, card in category.items() %}
 
                     <div class="col s12 m6 l4">
-                        <div class="card">
+                        <div class="card large">
                             <div class="card-image">
                                 <img src="{{ card['image'] }}">
                                 <span class="card-title">{{ card_name }}</span>
                             </div>
                             <div class="card-content"/>
                                 <i>{{ card['time'] }}</i><br/>
-                                <ul class="collection">
+                                <ul>
                                     {% for line in card['desc'] %}
-                                    <li class="collection-item">{{ line }}</li>
+                                    <li>{{ line }}</li>
                                     {% endfor %}
                                 </ul>
                             </div>

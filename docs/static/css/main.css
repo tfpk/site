@@ -1,0 +1,14 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.padded {
+    padding-left: 10px;
+}
+
+.card-title {
+    margin: 0.7em;
+}
+.card-content {
+    margin: 1em;
+}
