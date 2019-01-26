@@ -27,5 +27,9 @@ def blogs():
         blogs[blog.replace('.md', '')] = render_template('blog.html', mkdown=html)
     return blogs
 
+@site.register("CNAME")
+def cname():
+    return "tfpk.io"
+
 if __name__ == '__main__':
     site.render(path='docs/')
