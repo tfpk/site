@@ -1,30 +1,164 @@
   <!DOCTYPE html>
   <html>
     <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+      <style>
+      @font-face{
+        font-family: 'roboto';
+        src: url("../static/fonts/roboto-regular.ttf");
+      }
+      </style>
+      <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="../static/css/main.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="../static/css/dark_code.css"  media="screen,projection"/>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta charset="UTF-8">
     </head>
 
     <body>
-        <div class="navbar-fixed"/>
-        <nav>
-            <div class="nav-wrapper blue-grey darken-3 padded">
-                <a href="#!" class="brand-logo">tfpk</a>
-            </div>
-        </nav>
+    <div class="navbar-fixed"/>
+    <nav>
+        <div class="nav-wrapper blue-grey darken-3 padded">
+          <a href="#!" class="brand-logo">tfpk</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog_list.html">Blogs</a></li>
+            <li><a href="../project_list.html">Projects</a></li>
+          </ul>
         </div>
-        <div class="container">
-            
-        </div>
+    </nav>
+    </div>
+      <div class="container">
+      
+<h1>CSE HTML</h1>
+<p>One thing every programmer should know how to do is make a website. UNSW makes this a lot easier, giving us free hosting and a free domain name.
+With a website, you can work on projects and do cool stuff.</p>
+<p>This guide will run through some of the basics of website hosting, and how to confiugre a website using the CSE services provided.
+NOTE: This guide is provided AS-IS and WITHOUT ANY WARRANTY. It is possible the hosting services will change from when it is written (November 2018).
+Users should check the UNSW CSE responsible use policies. In short, don't be evil.</p>
+<h2>Assumptions</h2>
+<p>For this guide, it will be assumed the user has a basic understanding of UNIX and HTML. The concepts here should be covered in COMP1511/COMP1917 and COMP1531/COMP2041.</p>
+<h1>Your Website</h1>
+<p>On CSE servers, you have two automatic URLs. They are:
+- <code>http://web.cse.unsw.edu.au/~zXXXXXXX/</code>
+- <code>http://cse.unsw.edu.au/~zXXXXXXX/</code>
+- <code>http://z5205060.web.cse.unsw.edu.au/</code></p>
+<p>By default, these addresses don't serve anything. They may return a 403 (Access Denied) or 404 (File not Found) error. Let's fix that.</p>
+<h2>Serving Static HTML</h2>
+<p>1) Create a public HTML directory. </p>
+<pre><code>mkdir ~/public_html/
+</code></pre>
+<p>This is the root directory from which all web accesses take place. Files are prohibited from going above this directory as a security measure.
+For example, you can't try and access <code>~</code> from <code>~/public_html/</code>, so you can't steal a lecturer's <code>~/secret_exam_files</code></p>
+<p>2) Create an HTML file</p>
+<pre><code>$ touch ~/public_html/&lt;your_html&gt;.html
+</code></pre>
+<p>And fill it with HTML.</p>
+<p>3) Set the access permissions</p>
+<pre><code>$ chmod 644 ~/public_html/&lt;your_html&gt;.html
+</code></pre>
+<p>4) Access the page</p>
+<ul>
+<li><code>http://web.cse.unsw.edu.au/~zXXXXXXX/&lt;your_html&gt;.html</code></li>
+</ul>
+<h2>Configuring your page</h2>
+<p>All the controls for what redirects happen within your site are contained in a <code>.htaccess</code> file. It also specifies the way files are served.
+You can set up a <code>.htaccess</code>in any directory. Some useful configuration for a base directory:</p>
+<pre><code>RewriteEngine On
+RewriteCond %{HTTP_HOST} !zXXXXXXX.web.cse.unsw.edu.au [NC]
+RewriteRule (.*) http://zXXXXXXX.web.cse.unsw.edu.au/$1 [R=301,L]
+
+# TURN ON DEBUG MODE:
+# SetHandler application/x-setuid-cgid
+
+&lt;Files "robots.txt"&gt;
+    SetHandler text/plain
+&lt;/Files&gt;
+
+ErrorDocument 404 /errors/404.html
+</code></pre>
+<p>Here are four of the most useful constructs you can use to modify your site.
+The first (when you replace the X's with your zID) will redirect from http://cse.unsw.edu.au/~zXXXXXXX/... to http://zXXXXXXX.cse.unsw.edu.au/...
+The second, when the comment is removed, will set all files into debug mode. This is really useful if you get unknown errors, you can see a full error from the server/your programs.
+The third is the "Files" tag which lets you apply settings (such as a SetHandler) to individual files or to regular expressions.
+The fourth is the "ErrorDocument" tag which allows custom error pages.</p>
+<h2>Interactive apps</h2>
+<p>Using CGI and Python Flask, it's easy to create interactive apps.</p>
+<h3>CGI</h3>
+<p>CGI (Common Gateway Interface) is a protocol which allows internet connected users to request programs be run remotely. Those programs then output their responses over the internet.
+This allows you to write a program that prints out a HTTP response, and thus create a web server.</p>
+<h3>Setup</h3>
+<p>First, create a directory structure like so:</p>
+<blockquote>
+<ul>
+<li>directory/ [either public_html or a subdirectory]</li>
+<li>static/<ul>
+<li>example.css</li>
+<li>example.js</li>
+<li>example.png</li>
+</ul>
+</li>
+<li>templates/<ul>
+<li>main.html</li>
+</ul>
+</li>
+<li><yourapp>.cgi</li>
+</ul>
+</blockquote>
+<h4><code>static</code></h4>
+<p>This is where you will link to your "static" files, such as images and css.
+Set it up with:</p>
+<pre><code>$ chmod 755 static/
+$ chmod 644 static/*
+</code></pre>
+<p>(You need to repeat the second command every time you add files)</p>
+<p>You can access these files in templates using:</p>
+<pre><code>url_for('static', filename='example.js')
+</code></pre>
+<h4><code>templates</code></h4>
+<p>Here is where you can keep your jinja/flask templates. 
+No setup is required.</p>
+<h4><code>&lt;yourapp&gt;.cgi</code></h4>
+<p>Here is where the business of your application is.</p>
+<p>Set up the file with:</p>
+<pre><code>$ chmod 755 &lt;yourapp&gt;.cgi
+</code></pre>
+<p>Here is some starter code:</p>
+<pre><code>#!/usr/bin/python3
+# This tells the computer that we want to execute this cgi script using python3
+
+from wsgiref.handlers import CGIHandler
+from werkzeug.contrib.fixers import ProxyFix
+
+from flask import render_template
+from flask import Flask
+from flask import Response
+
+app = Flask(__name__)
+
+@app.route('/hello/&lt;name&gt;')
+def hello(name=None):
+    return Response(render_template('hello.html', name=name))
+# NOTE: You have to wrap "render_template" in this Response object
+# This ensures that it's given proper return headers
+
+if __name__ == '__main__':
+    app.wsgi_app = ProxyFix(app.wsgi_app) # Setup HTTP headers
+    CGIHandler().run(app)
+</code></pre>
+<h2>Where to go from here</h2>
+<p>Lots more information can be found at:
+ - <a href="https://taggi.cse.unsw.edu.au/FAQ/Creating_a_website/">Taggi: Creating a Website</a>
+ - <a href="https://taggi.cse.unsw.edu.au/FAQ/CGI_scripts/">Taggi: CGI Scripts</a></p>
+<h2>Weird stuff that happens</h2>
+<p><code>TypeError: Response is not iterable</code>: Use <code>make_repsonse</code> instead.</p>
+
+      </div>
 
       <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="../static/js/materialize.min.js"></script>
+      <script type="text/javascript" src="../static/js/highlight.pack.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
     </body>
   </html>

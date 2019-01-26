@@ -1,138 +1,210 @@
   <!DOCTYPE html>
   <html>
     <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+      <style>
+      @font-face{
+        font-family: 'roboto';
+        src: url("static/fonts/roboto-regular.ttf");
+      }
+      </style>
+      <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="static/css/main.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="static/css/dark_code.css"  media="screen,projection"/>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta charset="UTF-8">
     </head>
 
     <body>
-        <div class="navbar-fixed"/>
-        <nav>
-            <div class="nav-wrapper blue-grey darken-3 padded">
-                <a href="#!" class="brand-logo">tfpk</a>
-            </div>
-        </nav>
+    <div class="navbar-fixed"/>
+    <nav>
+        <div class="nav-wrapper blue-grey darken-3 padded">
+          <a href="#!" class="brand-logo">tfpk</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog_list.html">Blogs</a></li>
+            <li><a href="project_list.html">Projects</a></li>
+          </ul>
         </div>
-        <div class="container">
-            <div class="section"/>
-                <h3>Thomas Kunc</h3>
-            </div>
-            <div class="section"/>
-                <h4>Bio</h4>
-                <p>Thomas Kunc is a software developer, based in Sydney. He currently studies Computer Science at UNSW; and is a Casual Academic at UNSW and Developer at Kinesis. </p>
-            </div>
-            <div class="divider"></div>
-            <div class="section"/>
-                <h4>Education</h4>
-                <div class="row">
-                    
-                    <div class="col s12 m6 l4">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="images/SydneyGrammarSchool.jpg">
-                                <span class="card-title">SGS</span>
-                            </div>
-                            <div class="card-content"/>
-                                <i>( 2012 - 2017 )</i><br/>
-                                <span>Studied for the Higher School Certificate (English Adv.; Math Ext. 2; Latin Ext.; Physics; Studies of Religion)</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col s12 m6 l4">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="images/UNSW.jpg">
-                                <span class="card-title">UNSW</span>
-                            </div>
-                            <div class="card-content"/>
-                                <i>( 2018 - )</i><br/>
-                                <span>Student for the Bachelor of Science (Computer Science)</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
-            </div>
-            <div class="divider"></div>
-            <div class="section"/>
-                <h4>Experience</h4>
-                
-                    <h5>Current Work</h4>
-                    <div class="row">
-                    
-
-                    <div class="col s12 m6 l4">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="images/UNSW2.jpg">
-                                <span class="card-title">UNSW: Casual Academic</span>
-                            </div>
-                            <div class="card-content"/>
-                                <i> ( 2018 - ) </i><br/>
-                                <ul>
-                                    
-                                    <li>Assistant Tutor in COMP1511 (Fundamentals of Computer Science)</li>
-                                    
-                                    <li>Help Session Tutor: COMP1511</li>
-                                    
-                                    <li>Assisted in tutoring COMP1521 (Computer Systems Fundamentals) and COMP2521 (Data Structures and Algorithms)</li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <div class="col s12 m6 l4">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="images/kinesis.jpg">
-                                <span class="card-title">Kinesis: Developer</span>
-                            </div>
-                            <div class="card-content"/>
-                                <i> ( 2018 - ) </i><br/>
-                                <ul>
-                                    
-                                    <li>Developer working on internal and external facing progress.</li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <div class="col s12 m6 l4">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="">
-                                <span class="card-title">Debating Coach</span>
-                            </div>
-                            <div class="card-content"/>
-                                <i> ( 2018 - ) </i><br/>
-                                <ul>
-                                    
-                                    <li>Teaching communication skills </li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+    </nav>
+    </div>
+      <div class="container">
+      
+    <div class="section"/>
+        <h3>Thomas Kunc</h3>
+    </div>
+    <div class="section"/>
+        <h4>Bio</h4>
+        <p>My Name is Thomas Kunc. I'm a software developer, based in Sydney. I currently study Computer Science at UNSW; and is a Casual Academic at UNSW and Developer at Kinesis.
+        I mainly work in python, but also know C. </p>
+    </div>
+    <div class="divider"></div>
+    <div class="section"/>
+        <h4>Education</h4>
+        <div class="row">
             
-        
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/SydneyGrammarSchool.jpg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">SGS</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                      SGS
+                    </span>
+                    <i>( 2012 - 2017 )</i><br/>
+                    <span>Studied for the Higher School Certificate&lt;br/&gt; 
+            (English Adv.; Math Ext. 2; Latin Ext.; Physics; Studies of Religion)
+            </span>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/UNSW.jpg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">UNSW</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                      UNSW
+                    </span>
+                    <i>( 2018 - )</i><br/>
+                    <span>Student for the Bachelor of Science (Computer Science)</span>
+                  </div>
+                </div>
+              </div>
+            
+            
         </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section"/>
+        <h4>Experience</h4>
+        
+            <h5>Current Work</h4>
+            <div class="row">
+            
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/UNSW2.jpg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">UNSW: Casual Academic</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4 activator">
+                        UNSW: Casual Academic
+                    </span>
+                    <i> ( 2018 - ) </i><br/>
+                    <span>Assistant Tutor in COMP1511 (Fundamentals of Computer Science)
+                    Help Session Tutor: COMP1511
+                    Assisted in tutoring COMP1521 (Computer Systems Fundamentals) &amp;
+                    COMP2521 (Data Structures and Algorithms)</span>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/kinesis.jpg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">Kinesis: Developer</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4 activator">
+                        Kinesis: Developer
+                    </span>
+                    <i> ( 2018 - ) </i><br/>
+                    <span>[&#39;Developer working on internal and external facing progress.&#39;]</span>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/ANU_Easters_2012_Photo_YasminMasri.jpg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">Debating Coach</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4 activator">
+                        Debating Coach
+                    </span>
+                    <i> ( 2018 - ) </i><br/>
+                    <span>Teaching communication skills </span>
+                  </div>
+                </div>
+              </div>
+            
+        </div>
+    
+            <h5>Past Work</h4>
+            <div class="row">
+            
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/AAGPS.jpg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">GPS Scorekeeper</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4 activator">
+                        GPS Scorekeeper
+                    </span>
+                    <i> ( 2018 - ) </i><br/>
+                    <span>Created software to manage scoring a competition in Googlescript, and managed people to obtain results of competitions.</span>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="static/images/jbhifi.jpg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">JB Hi-Fi Casual Media Assistant</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4 activator">
+                        JB Hi-Fi Casual Media Assistant
+                    </span>
+                    <i> ( 2018 - ) </i><br/>
+                    <span>Worked on the counter and in organising assets.</span>
+                  </div>
+                </div>
+              </div>
+            
+        </div>
+    
+    <div class="divider"></div>
+    <div class="section">
+        <h4>Tech Skills</h4>
+    </div>
+
+</div>
+
+      </div>
 
       <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="static/js/materialize.min.js"></script>
+      <script type="text/javascript" src="static/js/highlight.pack.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
     </body>
   </html>

@@ -4,24 +4,21 @@ Decorators in python are really hard to understand. This is a simple guide to us
 
 The most fundamental trick to understand them is knowing this:
 
-```python
-# given
-def decorator(f):
-    f._decorated = True
-    return f
+    # given
+    def decorator(f):
+        f._decorated = True
+        return f
 
-# this:
+    # this:
 
-def func():
-    return
-func = decorator(func)
+    def func():
+        return
+    func = decorator(func)
 
-# Is the same as:
+    # Is the same as:
 
-@decorator
-def func():
-    return
-
-```
+    @decorator
+    def func():
+        return
 
 Put in words, a decorator is a pretty way of modifying a function.

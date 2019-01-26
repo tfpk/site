@@ -1,85 +1,71 @@
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-
-    <body>
-        <div class="navbar-fixed"/>
-        <nav>
-            <div class="nav-wrapper blue-grey darken-3 padded">
-                <a href="#!" class="brand-logo">tfpk</a>
-            </div>
-        </nav>
-        </div>
-        <div class="container">
-            <div class="section"/>
-                <h3>Thomas Kunc</h3>
-            </div>
-            <div class="section"/>
-                <h4>Bio</h4>
-                <p>{{ bio }} </p>
-            </div>
-            <div class="divider"></div>
-            <div class="section"/>
-                <h4>Education</h4>
-                <div class="row">
-                    {% for card_name, card in education.items() %}
-                    <div class="col s12 m6 l4">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="{{ card['image'] }}">
-                                <span class="card-title">{{ card_name }}</span>
-                            </div>
-                            <div class="card-content"/>
-                                <i>{{ card['time'] }}</i><br/>
-                                <span>{{ card['desc'] }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    
+{% extends "base.html" %}
+{% block content %}
+    <div class="section"/>
+        <h3>Thomas Kunc</h3>
+    </div>
+    <div class="section"/>
+        <h4>Bio</h4>
+        <p>My Name is Thomas Kunc. I'm a software developer, based in Sydney. I currently study Computer Science at UNSW; and is a Casual Academic at UNSW and Developer at Kinesis.
+        I mainly work in python, but also know C. </p>
+    </div>
+    <div class="divider"></div>
+    <div class="section"/>
+        <h4>Education</h4>
+        <div class="row">
+            {% for card_name, card in education.items() %}
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ static_url(card['image']) }}">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">{{ card_name }}</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                      {{ card_name }}
+                    </span>
+                    <i>{{ card['time'] }}</i><br/>
+                    <span>{{ card['desc'] }}</span>
+                  </div>
                 </div>
-            </div>
-            <div class="divider"></div>
-            <div class="section"/>
-                <h4>Experience</h4>
-                {% for cat_name, category in experience.items() %}
-                    <h5>{{cat_name}}</h4>
-                    <div class="row">
-                    {% for card_name, card in category.items() %}
-
-                    <div class="col s12 m6 l4">
-                        <div class="card large">
-                            <div class="card-image">
-                                <img src="{{ card['image'] }}">
-                                <span class="card-title">{{ card_name }}</span>
-                            </div>
-                            <div class="card-content"/>
-                                <i>{{ card['time'] }}</i><br/>
-                                <ul>
-                                    {% for line in card['desc'] %}
-                                    <li>{{ line }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
+              </div>
             {% endfor %}
-        
+            
         </div>
+    </div>
 
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-    </body>
-  </html>
+    <div class="divider"></div>
+    <div class="section"/>
+        <h4>Experience</h4>
+        {% for cat_name, category in experience.items() %}
+            <h5>{{cat_name}}</h4>
+            <div class="row">
+            {% for card_name, card in category.items() %}
+              <div class="col s12 m6 l4">
+                <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ static_url(card['image']) }}">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">{{ card_name }}</span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4 activator">
+                        {{ card_name }}
+                    </span>
+                    <i>{{ card['time'] }}</i><br/>
+                    <span>{{ card['desc'] }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <div class="divider"></div>
+    <div class="section">
+        <h4>Tech Skills</h4>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+      @font-face{
+        font-family: 'roboto';
+        src: url("{{ static_url('fonts/roboto-regular.ttf') }}");
+      }
+      </style>
+      <link type="text/css" rel="stylesheet" href="{{ static_url('css/materialize.min.css') }}"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="{{ static_url('css/main.css') }}"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="{{ static_url('css/dark_code.css') }}"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta charset="UTF-8">
+    </head>
+
+    <body>
+    <div class="navbar-fixed"/>
+    <nav>
+        <div class="nav-wrapper blue-grey darken-3 padded">
+          <a href="#!" class="brand-logo">tfpk</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('blog_list') }}">Blogs</a></li>
+            <li><a href="{{ url_for('project_list') }}">Projects</a></li>
+          </ul>
+        </div>
+    </nav>
+    </div>
+      <div class="container">
+      {% block content %}{% endblock %}
+      </div>
+
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="{{ static_url('js/materialize.min.js') }}"></script>
+      <script type="text/javascript" src="{{ static_url('js/highlight.pack.js') }}"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+  </html>

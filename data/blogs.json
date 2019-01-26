@@ -1,0 +1,14 @@
+[
+    {
+        "md_name": "cse_site",
+        "name": "Making a CSE Site",
+        "desc": "A guide to making a website on CSE",
+        "image": "images/unsw_computing.jpg"
+    },
+    {
+        "md_name": "python_decorators",
+        "name": "Understanding Python Decorators",
+        "desc": "Decorators are a powerful python tool to improve your code... assuming you can use them.",
+        "image": "images/decorator_code.jpg"
+    }
+]

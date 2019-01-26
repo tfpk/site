@@ -1,47 +1,63 @@
   <!DOCTYPE html>
   <html>
     <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+      <style>
+      @font-face{
+        font-family: 'roboto';
+        src: url("../static/fonts/roboto-regular.ttf");
+      }
+      </style>
+      <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="../static/css/main.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="../static/css/dark_code.css"  media="screen,projection"/>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta charset="UTF-8">
     </head>
 
     <body>
-        <div class="navbar-fixed"/>
-        <nav>
-            <div class="nav-wrapper blue-grey darken-3 padded">
-                <a href="#!" class="brand-logo">tfpk</a>
-            </div>
-        </nav>
+    <div class="navbar-fixed"/>
+    <nav>
+        <div class="nav-wrapper blue-grey darken-3 padded">
+          <a href="#!" class="brand-logo">tfpk</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog_list.html">Blogs</a></li>
+            <li><a href="../project_list.html">Projects</a></li>
+          </ul>
         </div>
-        <div class="container">
-            <h1>Decorators in python</h1>
+    </nav>
+    </div>
+      <div class="container">
+      
+<h1>Decorators in python</h1>
 <p>Decorators in python are really hard to understand. This is a simple guide to using them that is hopefully instructive.</p>
 <p>The most fundamental trick to understand them is knowing this:</p>
-<p>```python</p>
-<h1>given</h1>
-<p>def decorator(f):
+<pre><code># given
+def decorator(f):
     f._decorated = True
-    return f</p>
-<h1>this:</h1>
-<p>def func():
-    return
-func = decorator(func)</p>
-<h1>Is the same as:</h1>
-<p>@decorator
+    return f
+
+# this:
+
 def func():
-    return</p>
-<p>```</p>
+    return
+func = decorator(func)
+
+# Is the same as:
+
+@decorator
+def func():
+    return
+</code></pre>
 <p>Put in words, a decorator is a pretty way of modifying a function.</p>
-        </div>
+
+      </div>
 
       <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="../static/js/materialize.min.js"></script>
+      <script type="text/javascript" src="../static/js/highlight.pack.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
     </body>
   </html>
