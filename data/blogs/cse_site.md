@@ -16,7 +16,6 @@ For this guide, it will be assumed the user has a basic understanding of UNIX an
 On CSE servers, you have two automatic URLs. They are:
 
 -   `http://web.cse.unsw.edu.au/~zXXXXXXX/`
--   `http://cse.unsw.edu.au/~zXXXXXXX/`
 -   `http://z5205060.web.cse.unsw.edu.au/`
 
 By default, these addresses don't serve anything. They may return a 403 (Access Denied) or 404 (File not Found) error. Let's fix that.
@@ -88,7 +87,7 @@ First, create a directory structure like so:
         - example.js
         - example.png
       - templates/
-       - main.html
+        - main.html
       - <yourapp>.cgi
 
 #### `static`
