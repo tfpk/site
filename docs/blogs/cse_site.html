@@ -20,8 +20,8 @@
     <div class="navbar-fixed"/>
     <nav>
         <div class="nav-wrapper blue-grey darken-3 padded">
-          <a href="#!" class="brand-logo">tfpk</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <a href="#!" style="font-size: 1.5em">tfpk</a>
+          <ul id="nav-mobile" class="right">
             <li><a href="../index.html">Home</a></li>
             <li><a href="../blog_list.html">Blogs</a></li>
             <li><a href="../project_list.html">Projects</a></li>
@@ -40,10 +40,12 @@ Users should check the UNSW CSE responsible use policies. In short, don't be evi
 <h2>Assumptions</h2>
 <p>For this guide, it will be assumed the user has a basic understanding of UNIX and HTML. The concepts here should be covered in COMP1511/COMP1917 and COMP1531/COMP2041.</p>
 <h1>Your Website</h1>
-<p>On CSE servers, you have two automatic URLs. They are:
-- <code>http://web.cse.unsw.edu.au/~zXXXXXXX/</code>
-- <code>http://cse.unsw.edu.au/~zXXXXXXX/</code>
-- <code>http://z5205060.web.cse.unsw.edu.au/</code></p>
+<p>On CSE servers, you have two automatic URLs. They are:</p>
+<ul>
+<li><code>http://web.cse.unsw.edu.au/~zXXXXXXX/</code></li>
+<li><code>http://cse.unsw.edu.au/~zXXXXXXX/</code></li>
+<li><code>http://z5205060.web.cse.unsw.edu.au/</code></li>
+</ul>
 <p>By default, these addresses don't serve anything. They may return a 403 (Access Denied) or 404 (File not Found) error. Let's fix that.</p>
 <h2>Serving Static HTML</h2>
 <p>1) Create a public HTML directory. </p>
@@ -90,22 +92,15 @@ The fourth is the "ErrorDocument" tag which allows custom error pages.</p>
 This allows you to write a program that prints out a HTTP response, and thus create a web server.</p>
 <h3>Setup</h3>
 <p>First, create a directory structure like so:</p>
-<blockquote>
-<ul>
-<li>directory/ [either public_html or a subdirectory]</li>
-<li>static/<ul>
-<li>example.css</li>
-<li>example.js</li>
-<li>example.png</li>
-</ul>
-</li>
-<li>templates/<ul>
-<li>main.html</li>
-</ul>
-</li>
-<li><yourapp>.cgi</li>
-</ul>
-</blockquote>
+<pre><code>- directory/ [either `~/public_html` or a subdirectory of it]
+  - static/
+    - example.css
+    - example.js
+    - example.png
+  - templates/
+   - main.html
+  - &lt;yourapp&gt;.cgi
+</code></pre>
 <h4><code>static</code></h4>
 <p>This is where you will link to your "static" files, such as images and css.
 Set it up with:</p>
@@ -148,11 +143,15 @@ if __name__ == '__main__':
     CGIHandler().run(app)
 </code></pre>
 <h2>Where to go from here</h2>
-<p>Lots more information can be found at:
- - <a href="https://taggi.cse.unsw.edu.au/FAQ/Creating_a_website/">Taggi: Creating a Website</a>
- - <a href="https://taggi.cse.unsw.edu.au/FAQ/CGI_scripts/">Taggi: CGI Scripts</a></p>
+<p>Lots more information can be found at:</p>
+<ul>
+<li><a href="https://taggi.cse.unsw.edu.au/FAQ/Creating_a_website/">Taggi: Creating a Website</a></li>
+<li><a href="https://taggi.cse.unsw.edu.au/FAQ/CGI_scripts/">Taggi: CGI Scripts</a></li>
+</ul>
 <h2>Weird stuff that happens</h2>
-<p><code>TypeError: Response is not iterable</code>: Use <code>make_repsonse</code> instead.</p>
+<ul>
+<li><code>TypeError: Response is not iterable</code>: Use <code>make_repsonse</code> instead.</li>
+</ul>
 
       </div>
 

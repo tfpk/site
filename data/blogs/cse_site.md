@@ -14,9 +14,10 @@ For this guide, it will be assumed the user has a basic understanding of UNIX an
 # Your Website
 
 On CSE servers, you have two automatic URLs. They are:
-- `http://web.cse.unsw.edu.au/~zXXXXXXX/`
-- `http://cse.unsw.edu.au/~zXXXXXXX/`
-- `http://z5205060.web.cse.unsw.edu.au/`
+
+-   `http://web.cse.unsw.edu.au/~zXXXXXXX/`
+-   `http://cse.unsw.edu.au/~zXXXXXXX/`
+-   `http://z5205060.web.cse.unsw.edu.au/`
 
 By default, these addresses don't serve anything. They may return a 403 (Access Denied) or 404 (File not Found) error. Let's fix that.
 
@@ -81,14 +82,14 @@ This allows you to write a program that prints out a HTTP response, and thus cre
 
 First, create a directory structure like so:
 
-> - directory/ [either public_html or a subdirectory]
->   - static/
->       - example.css
->       - example.js
->       - example.png
->   - templates/
->       - main.html
->   - <yourapp>.cgi
+    - directory/ [either `~/public_html` or a subdirectory of it]
+      - static/
+        - example.css
+        - example.js
+        - example.png
+      - templates/
+       - main.html
+      - <yourapp>.cgi
 
 #### `static`
 
@@ -144,9 +145,11 @@ Here is some starter code:
 ## Where to go from here
 
 Lots more information can be found at:
- - [Taggi: Creating a Website](https://taggi.cse.unsw.edu.au/FAQ/Creating_a_website/)
- - [Taggi: CGI Scripts](https://taggi.cse.unsw.edu.au/FAQ/CGI_scripts/)
 
+-   [Taggi: Creating a Website](https://taggi.cse.unsw.edu.au/FAQ/Creating_a_website/)
+-   [Taggi: CGI Scripts](https://taggi.cse.unsw.edu.au/FAQ/CGI_scripts/)
 
 ## Weird stuff that happens
-`TypeError: Response is not iterable`: Use `make_repsonse` instead.
+
+*   `TypeError: Response is not iterable`: Use `make_repsonse` instead.
+
