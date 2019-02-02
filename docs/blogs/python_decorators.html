@@ -14,6 +14,8 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta charset="UTF-8">
+      <title>tfpk</title>
+      
     </head>
 
     <body>
@@ -31,12 +33,13 @@
     </div>
       <div class="container">
       
+<div class="flow-text">
   <h1>Decorators in python</h1>
 <p>Decorators in python are really hard to understand. This is a simple guide to using them that is hopefully instructive.</p>
 <p>The most fundamental trick to understand them is knowing this:</p>
 <pre><code># given
 def decorator(f):
-    f._decorated = True
+    # do things
     return f
 
 # this:
@@ -51,7 +54,120 @@ func = decorator(func)
 def func():
     return
 </code></pre>
-<p>Put in words, a decorator is a pretty way of modifying a function.</p>
+<p>Put in words, a decorator is a way of modifying how a function is declared.</p>
+<p>It has two essential components to it:</p>
+<ul>
+<li>It runs the code inside the decorator</li>
+<li>It replaces the function given with whatever value the decorator returns.</li>
+</ul>
+<p>There are three usecases that come as a result of this:</p>
+<h2>1) Performing an action once, when a function is declared</h2>
+<p>If you want to specify that something happens when a function is declared, the decorator is the right way to do it.</p>
+<p>The best use-case is if you're "registering" functions. For instance, say you want to make a list of functions that get run by a single function, you could do the following:</p>
+<pre><code>registered_functions = []
+def register(f):
+    registered_functions.append(f)
+    return f
+
+@register
+def print_1():
+    print(1)
+
+@register
+def print_2():
+    print(2)
+
+@register
+def print_3():
+    print(3)
+
+def run_registered_functions():
+    for func in registered_functions:
+        func()
+
+
+&gt;&gt;&gt; run_registered_functions()
+1
+2
+3
+</code></pre>
+<p>This is contrived, obviously, but I have previously used this for things like:</p>
+<ul>
+<li>When I'm writing a module that people can import from, you can use this to choose which functions can be imported with <code>from my_module import *</code></li>
+<li>When I'm writing tests with <a href="pytest.org">pytest</a>, you use decorators to mark tests that should be skipped.</li>
+</ul>
+<h2>2) Modifying the behaviour of a function.</h2>
+<p>Because you can change what function is returned, you can modify how a function works with decorators. The simplest example of this is:</p>
+<pre><code>def new_function():
+    print(2)
+
+def decorator(f):
+    return new_function
+
+@decorator
+def original_function():
+    print(1)
+
+
+&gt;&gt;&gt; original_function():
+2
+</code></pre>
+<p>See how even though I'm calling <code>original_function</code>, it's actually executing <code>new_function</code>, since the decorator returned that instead.</p>
+<p>This isn't particularly useful. It's much better to "wrap" the function you're given:</p>
+<pre><code>def decorator(f):
+    def wrapper(*args, **kwargs):
+        # note, this wrapper will work with any function
+        # since it takes any arguments
+        print("about to call this function")
+        return_value = f(*args, **kwargs)
+        if return_value is None:
+            print("function did not return anything")
+        else:
+            print("function returned " + return_value)
+    return wrapper
+
+@decorator
+def just_return(value):
+    return value
+
+
+&gt;&gt;&gt; just_return(None)
+about to call this function
+function did not return anything
+
+&gt;&gt;&gt; just_return(2)
+about to call this function
+function returned 2
+</code></pre>
+<p>This is much more useful. You can do things like:</p>
+<ul>
+<li>Validate that a function returns something. Or that it returns a particular value (like, that it returns an integer)</li>
+<li>Modify the return value. The best example of this is to make it so that a function is only run once, and any following calls to it return the same value.</li>
+</ul>
+<p>## 3) Adding arguments to modify a function</p>
+<p>One of the best perks of decorators is a feature that hasn't been demonstrated in this article: they can take arguments.
+ That works like this:</p>
+<pre><code>def register(argument):
+    def decorator(f):
+        print("function decorated with argument: " + argument)
+        return f
+    return decorator
+
+@register('the_argument')
+def my_func():
+    return
+
+
+&gt;&gt;&gt; my_func()
+function decorated with argument the_argument
+</code></pre>
+<p>An example of where this is useful is when writing a web server. You might write a function that describes a particular page,
+and then register it with a decorator that gives its address on the server.</p>
+<h1>A note on wrappers</h1>
+<p>When wrapping a function, since a new function is returned, it loses the information about the function it wrapped.
+This includes things like the function's name (which can be accessed with <code>function.__name__</code>, but might say <code>wrapper</code> rather than <code>my_function_name</code>).</p>
+<p>You can restore this by using the <code>functools.wraps</code> decorator on the wrapper function.</p>
+</div>
 
       </div>
 

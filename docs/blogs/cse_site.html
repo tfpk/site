@@ -14,6 +14,8 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta charset="UTF-8">
+      <title>tfpk</title>
+      
     </head>
 
     <body>
@@ -31,6 +33,7 @@
     </div>
       <div class="container">
       
+<div class="flow-text">
   <h1>CSE HTML</h1>
 <p>One thing every programmer should know how to do is make a website. UNSW makes this a lot easier, giving us free hosting and a free domain name.
 With a website, you can work on projects and do cool stuff.</p>
@@ -76,14 +79,19 @@ RewriteRule (.*) http://zXXXXXXX.web.cse.unsw.edu.au/$1 [R=301,L]
 &lt;Files "robots.txt"&gt;
     SetHandler text/plain
 &lt;/Files&gt;
+&lt;Files "my_app"&gt;
+    SetHandler application/x-setuid-cgi
+&lt;/Files&gt;
 
 ErrorDocument 404 /errors/404.html
 </code></pre>
-<p>Here are four of the most useful constructs you can use to modify your site.
-The first (when you replace the X's with your zID) will redirect from http://cse.unsw.edu.au/~zXXXXXXX/... to http://zXXXXXXX.cse.unsw.edu.au/...
-The second, when the comment is removed, will set all files into debug mode. This is really useful if you get unknown errors, you can see a full error from the server/your programs.
-The third is the "Files" tag which lets you apply settings (such as a SetHandler) to individual files or to regular expressions.
-The fourth is the "ErrorDocument" tag which allows custom error pages.</p>
+<p>Here are four of the most useful constructs you can use to modify your site:</p>
+<ul>
+<li>The first (when you replace the X's with your zID) will redirect from http://cse.unsw.edu.au/~zXXXXXXX/... to http://zXXXXXXX.cse.unsw.edu.au/...</li>
+<li>The second, when the comment is removed, will set all files into debug mode. This is really useful if you get unknown errors, you can see a full error from the server/your programs.</li>
+<li>The third is the "Files" tag which lets you apply settings (such as a SetHandler) to individual files or to files matching a regular expression.</li>
+<li>The fourth is the "ErrorDocument" tag which allows custom error pages.</li>
+</ul>
 <h2>Interactive apps</h2>
 <p>Using CGI and Python Flask, it's easy to create interactive apps.</p>
 <h3>CGI</h3>
@@ -151,6 +159,7 @@ if __name__ == '__main__':
 <ul>
 <li><code>TypeError: Response is not iterable</code>: Use <code>make_repsonse</code> instead.</li>
 </ul>
+</div>
 
       </div>
 

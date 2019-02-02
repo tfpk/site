@@ -1,3 +1,10 @@
+~~~
+md_name = "cse_site"
+name = "Making a CSE Site"
+desc = "A guide to making a website on CSE"
+image = "images/unsw_computing.jpg"
+~~~
+
 # CSE HTML
 
 One thing every programmer should know how to do is make a website. UNSW makes this a lot easier, giving us free hosting and a free domain name.
@@ -59,14 +66,18 @@ You can set up a `.htaccess`in any directory. Some useful configuration for a ba
     <Files "robots.txt">
         SetHandler text/plain
     </Files>
+    <Files "my_app">
+        SetHandler application/x-setuid-cgi
+    </Files>
 
     ErrorDocument 404 /errors/404.html
 
-Here are four of the most useful constructs you can use to modify your site.
-The first (when you replace the X's with your zID) will redirect from http://cse.unsw.edu.au/~zXXXXXXX/... to http://zXXXXXXX.cse.unsw.edu.au/...
-The second, when the comment is removed, will set all files into debug mode. This is really useful if you get unknown errors, you can see a full error from the server/your programs.
-The third is the "Files" tag which lets you apply settings (such as a SetHandler) to individual files or to regular expressions.
-The fourth is the "ErrorDocument" tag which allows custom error pages.
+Here are four of the most useful constructs you can use to modify your site:
+
+*   The first (when you replace the X's with your zID) will redirect from http://cse.unsw.edu.au/~zXXXXXXX/... to http://zXXXXXXX.cse.unsw.edu.au/...
+*   The second, when the comment is removed, will set all files into debug mode. This is really useful if you get unknown errors, you can see a full error from the server/your programs.
+*   The third is the "Files" tag which lets you apply settings (such as a SetHandler) to individual files or to files matching a regular expression.
+*   The fourth is the "ErrorDocument" tag which allows custom error pages.
 
 ## Interactive apps
 

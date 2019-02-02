@@ -12,3 +12,6 @@ body {
 .card-content {
     margin: 1em;
 }
+.flow-text > ul:not(.browser-default) > li {
+    list-style-type: initial;
+}

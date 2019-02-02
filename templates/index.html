@@ -1,16 +1,24 @@
 {% extends "base.html" %}
+{% block head %}
+<style>
+.large-title {
+  font-size: 1.5em;
+}
+</style>
+{% endblock %}
 {% block content %}
     <div class="section"/>
         <h3>Thomas Kunc</h3>
     </div>
     <div class="section"/>
-        <h4>Bio</h4>
-        <p>My Name is Thomas Kunc. I'm a software developer, based in Sydney. I currently study Computer Science at UNSW; and is a Casual Academic at UNSW and Developer at Kinesis.
-        I mainly work in python, but also know C. </p>
+        <h3>Bio</h3>
+        <span class="flow-text">
+          {{ bio_md|safe }}
+        </span>
     </div>
     <div class="divider"></div>
     <div class="section"/>
-        <h4>Education</h4>
+        <h3>Education</h3>
         <div class="row">
             {% for card_name, card in education.items() %}
               <div class="col s12 m6 l4">
@@ -22,11 +30,14 @@
                     <span class="card-title activator">{{ card_name }}</span>
                   </div>
                   <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">
-                      {{ card_name }}
-                    </span>
+                    <span class="card-title grey-text text-darken-4">{{ card_name }}</span>
                     <i>{{ card['time'] }}</i><br/>
-                    <span>{{ card['desc'] }}</span>
+                    <span>{{ card['desc']|safe }}</span>
+                    <div class="card-action">
+                      {% for link in card['links'] %}
+                        <a href="{{ url_for('experience', name=card['links'][link]) }}">{{link}}</a>
+                      {% endfor %}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -37,9 +48,9 @@
 
     <div class="divider"></div>
     <div class="section"/>
-        <h4>Experience</h4>
+        <h3>Experience</h3>
         {% for cat_name, category in experience.items() %}
-            <h5>{{cat_name}}</h4>
+            <h5>{{cat_name}}</h3>
             <div class="row">
             {% for card_name, card in category.items() %}
               <div class="col s12 m6 l4">
@@ -55,7 +66,12 @@
                         {{ card_name }}
                     </span>
                     <i>{{ card['time'] }}</i><br/>
-                    <span>{{ card['desc'] }}</span>
+                    <span>{{ card['desc']|safe }}</span>
+                    <div class="card-action">
+                      {% for link in card['links'] %}
+                        <a href="{{ url_for('experience', name=card['links'][link]) }}">{{link}}</a>
+                      {% endfor %}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -64,8 +80,21 @@
     {% endfor %}
     <div class="divider"></div>
     <div class="section">
-        <h4>Tech Skills</h4>
+        <h3>Tech Skills</h3>
+            <div class="row">
+            {% for card_name, card in skills.items() %}
+              <div class="col s6 m4 l2">
+                <div class="card small">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ static_url(card['image']) }}">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator">{{ card_name }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
     </div>
-
 </div>
 {% endblock %}

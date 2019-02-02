@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Dewar",
+        "desc": "A staic site generator that looks like flask.",
+        "image": "images/dewar.jpg",
+        "links": {
+            "Docs": "http://dewar.tfpk.io",
+            "Source": "https://github.com/tfpk/dewar"
+        }
+    },
+    {
+        "name": "Site",
+        "desc": "This website",
+        "image": "images/site.jpg",
+        "links": {
+            "Source": "https://github.com/tfpk/site"
+        }
+    },
+    {
+        "name": "CSE Helps",
+        "desc": "A tool to help run help sessions at CSE. Not publically available.",
+        "image": "images/helps.png",
+        "links": {
+        }
+    },
+    {
+        "name": "GDB Tools",
+        "desc": "A collection of tools to make GDB more beginner friendly.",
+        "image": "images/gdb_tools.png",
+        "links": {
+            "Source": "https://github.com/tfpk/gdb_tools"
+        }
+    },
+    {
+        "name": "Valhalla",
+        "desc": "A wrapper around valgrind that explains and colorizes the output.",
+        "image": "images/valhalla.png",
+        "links": {
+            "Source": "https://github.com/tfpk/valhalla"
+        }
+    }
+]

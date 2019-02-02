@@ -18,11 +18,11 @@
     "default": {
         "dewar": {
             "hashes": [
-                "sha256:85a78bdbdfd599ecbb7c11a4f41fcbb10356835ecf6a506ea93728c19a54bd79",
-                "sha256:a0b653acf60a531d84893845174a1b49d617356da61f1818805a9bffb3c1a39e"
+                "sha256:7a850f2396e6535abee4403879debcc1dcf56a4932284e0101fe5eb3cff51e90",
+                "sha256:92f95216e3a17195a16aa5c69fea78c4b8795cb5e78f20dae7e9a7196aa41d3a"
             ],
             "index": "pypi",
-            "version": "==1.1.6"
+            "version": "==1.2.1"
         },
         "jinja2": {
             "hashes": [
