@@ -39,7 +39,7 @@ I also sing, and have previously worked for Opera Australia as a child singer, a
             "Kinesis: Developer":{
                 "image": "images/kinesis.jpg",
                 "time": " ( 2018 - ) ",
-                "desc": "Developer working on internal and external facing progress.",
+                "desc": "Programmer working primarily on internal data science tools in Python.",
                 "links": {
                     "Info": "kinesis"
                 },
@@ -48,19 +48,25 @@ I also sing, and have previously worked for Opera Australia as a child singer, a
         "Past Work": {
             "GPS Scorekeeper":{
                 "image": "images/AAGPS.jpg",
-                "time": "( 2018 - )",
+                "time": "( 2012 - 2018 )",
                 "desc":  """Created software to manage scoring a competition in Googlescript,
                 and managed people to obtain results of competitions."""
             },
             "JB Hi-Fi Casual Media Assistant":{
                 "image": "images/jbhifi.jpg",
-                "time": "( 2018 - )",
-                "desc": """Worked on the counter and in organising assets."""
+                "time": "( 2018 )",
+                "desc": """
+                Worked in a customer facing role, providing assistance to customers
+                in technical decisions, and handling transactions."""
             },
             "Debating Coach":{
                 "image": "images/ANU_Easters_2012_Photo_YasminMasri.jpg",
                 "time": "( 2018 - )",
-                "desc": "Teaching communication skills "
+                "desc": """
+                Taught highschool debating in the Eastside and GPS competitions. 
+                Ran training sessions of 6-12 boys, teaching skills in argumentation,
+                and current affairs knowledge.
+                """
             }
         }
     },
