@@ -10,7 +10,7 @@ image = "images/unsw_computing.jpg"
 One thing every programmer should know how to do is make a website. UNSW makes this a lot easier, giving us free hosting and a free domain name.
 With a website, you can work on projects and do cool stuff.
 
-This guide will run through some of the basics of website hosting, and how to confiugre a website using the CSE services provided.
+This guide will run through some of the basics of website hosting, and how to configure a website using the CSE services provided.
 NOTE: This guide is provided AS-IS and WITHOUT ANY WARRANTY. It is possible the hosting services will change from when it is written (November 2018).
 Users should check the UNSW CSE responsible use policies. In short, don't be evil.
 

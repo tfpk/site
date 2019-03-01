@@ -38,5 +38,14 @@
         "links": {
             "Source": "https://github.com/tfpk/valhalla"
         }
+    },
+    {
+        "name": "Examtime",
+        "desc": "A convenient timer for administering exams",
+        "image": "images/examtime.png",
+        "links": {
+            "Source": "https://github.com/tfpk/examtime",
+            "Link": "examtime.tfpk.io"
+        }
     }
 ]

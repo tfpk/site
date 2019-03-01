@@ -35,7 +35,7 @@ It has two essential components to it:
  - It runs the code inside the decorator
  - It replaces the function given with whatever value the decorator returns.
 
-There are three usecases that come as a result of this:
+There are three use-cases that come as a result of this:
 
 ## 1) Performing an action once, when a function is declared
 
