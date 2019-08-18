@@ -57,7 +57,7 @@ for path in pathlib.Path('.').glob('mark_*'):
                 print(url)
 
                 requests.put(url, cookies={'session': SESSION_TOKEN})
-            else:
+            elif not line.strip():
                 offset -= 1
 
 EoF
